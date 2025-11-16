@@ -1,0 +1,443 @@
+/* === 1. CSS Variables === */
+:root {
+    --primary-color: #4CAF50; /* Hijau modern */
+    --secondary-color: #ff0000; /* Biru terang */
+    --text-color: #333;
+    --light-text-color: #666;
+    --background-light: #f8f8f8;
+    --background-dark: #11369d; /* Warna header/footer gelap */
+    --white: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* === 2. Base Styles === */
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-color);
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+h1 { font-size: 3.2em; }
+h2 { font-size: 2.5em; color: var(--primary-color); }
+h3 { font-size: 1.8em; }
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1em;
+}
+
+/* === 3. Buttons === */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px; /* Bentuk pil */
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 1em;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn.primary:hover {
+    background-color: darken(var(--primary-color), 10%); /* Atau warna sedikit lebih gelap */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+.btn.secondary {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+/* === 4. Header & Navigation === */
+header {
+    background-color: var(--background-dark);
+    color: var(--white);
+    padding: 20px 0;
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--white);
+    font-weight: 400;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a::after { /* Efek garis bawah saat hover/aktif */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+/* === 5. Main Content Sections === */
+main {
+    padding: 40px 0;
+}
+
+.content-section {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    margin-bottom: 30px;
+}
+
+/* Hero Section (Home Page) */
+.hero-section {
+    background: linear-gradient(to right, var(--background-dark), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1510915228389-fe8713d3369c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    overflow: hidden; /* Untuk memastikan border-radius bekerja dengan baik pada gambar */
+    display: flex; /* Untuk layout konten dan gambar */
+    align-items: center;
+}
+
+.hero-section .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+}
+
+.hero-content {
+    flex: 2;
+}
+
+.hero-content h1 {
+    color: var(--white);
+    font-size: 4em;
+    margin-bottom: 10px;
+}
+
+.hero-content .subtitle {
+    font-size: 1.3em;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 50%; /* Membuat gambar profil lingkaran */
+    border: 5px solid var(--white);
+    box-shadow: 0 8px 20px var(--shadow-light);
+}
+
+/* About Section */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.skills-list li {
+    background-color: var(--background-light);
+    padding: 12px 20px;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 5px;
+    font-weight: 600;
+    color: var(--light-text-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Portfolio Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-light);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-card h3 {
+    font-size: 1.5em;
+    margin: 15px 20px 10px;
+    color: var(--text-color);
+}
+
+.project-card p {
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    padding: 0 20px;
+    flex-grow: 1; /* Agar deskripsi memenuhi ruang */
+}
+
+.project-card .btn {
+    margin: 15px 20px 20px;
+    width: calc(100% - 40px);
+    align-self: flex-start;
+}
+
+
+/* Contact Section */
+.contact-info-form {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.contact-info {
+    flex: 1;
+    background-color: var(--background-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow-light);
+}
+
+.contact-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.contact-info ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info ul li a {
+    color: var(--text-color);
+}
+.contact-info ul li a:hover {
+    color: var(--primary-color);
+}
+
+.contact-form-wrapper {
+    flex: 2;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+.contact-form-wrapper h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--light-text-color);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1em;
+    box-sizing: border-box; /* Agar padding tidak menambah lebar */
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+textarea {
+    resize: vertical; /* Memungkinkan textarea diubah ukurannya secara vertikal */
+}
+
+/* === 6. Footer === */
+footer {
+    background-color: var(--background-dark);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+
+/* === 7. Responsive Design (Media Queries) === */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.5em; }
+
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap; /* Mengatur item navigasi ke baris baru jika terlalu banyak */
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 10px 10px;
+    }
+
+    .hero-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-image {
+        order: -1; /* Gambar di atas konten di mobile */
+        margin-bottom: 30px;
+    }
+
+    .hero-image img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Satu kolom di mobile */
+    }
+
+    .contact-info-form {
+        flex-direction: column;
+    }
+
+    .content-section {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+    .hero-content .subtitle {
+        font-size: 1em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}

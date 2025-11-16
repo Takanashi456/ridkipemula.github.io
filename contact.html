@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - RIDKI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">WEBSITE PEMULA</a>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="about.html">Tentang Saya</a></li>
+                    <li><a href="portfolio.html">Portofolio</a></li>
+                    <li><a href="contact.html" class="active">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <div class="container">
+                <h2>Hubungi Saya 📧</h2>
+                <div class="contact-info-form">
+                    <div class="contact-info">
+                        <h3>Informasi Kontak</h3>
+                        <p>Jika ingin menanyakan pertanyaan seputar coding dasar bisa langsung menghubungi kontak dibawah ini.</p>
+                        <ul>
+                            <li><strong>Email: </strong> <a href="mailto:ridkiridki743@gmail.com"> ridkiridki743@gmail.com</a></li>
+                            <li><strong>WhatsApp: </strong> <a href="https://wa.link/e9yw36" target="_blank"> 0812833415121</a></li>
+                        </ul>
+                    </div>
+                    <div class="contact-form-wrapper">
+                        <h3>Kirim Pesan</h3>
+                        <form action="#" method="POST" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nama:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subjek:</label>
+                                <input type="text" id="subject" name="subject">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Pesan:</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn primary">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 RIDKI. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+</body>
+</html>
